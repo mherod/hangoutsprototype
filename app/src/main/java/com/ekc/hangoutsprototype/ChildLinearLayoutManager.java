@@ -8,9 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by erickchang on 2/19/15.
  * Used as a linear layout manager in a nested childview of another recyclerview
- * for wrap content support
+ * for wrap content support.
  */
 public class ChildLinearLayoutManager extends LinearLayoutManager {
 
@@ -31,11 +30,11 @@ public class ChildLinearLayoutManager extends LinearLayoutManager {
         final int widthSize = View.MeasureSpec.getSize(widthSpec);
         final int heightSize = View.MeasureSpec.getSize(heightSpec);
 
-        Log.i(TAG, "onMeasure called. \nwidthMode " + widthMode
-                + " \nheightMode " + heightSpec
-                + " \nwidthSize " + widthSize
-                + " \nheightSize " + heightSize
-                + " \ngetItemCount() " + getItemCount());
+//        Log.i(TAG, "onMeasure called. \nwidthMode " + widthMode
+//                + " \nheightMode " + heightSpec
+//                + " \nwidthSize " + widthSize
+//                + " \nheightSize " + heightSize
+//                + " \ngetItemCount() " + getItemCount());
 
         int width = 0;
         int height = 0;

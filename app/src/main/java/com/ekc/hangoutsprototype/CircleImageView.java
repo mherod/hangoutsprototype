@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 /**
- * Created by erickchang on 2/17/15.
+ * Custom image view to apply a circle mask on top of a profile image
  */
 public class CircleImageView extends ImageView {
     private static final String TAG = CircleImageView.class.getSimpleName();
@@ -33,12 +33,12 @@ public class CircleImageView extends ImageView {
 
     public CircleImageView(Context context) {
         super(context);
-        Log.i(TAG, "constructor 0");
+//        Log.i(TAG, "constructor 0");
     }
 
     public CircleImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        Log.i(TAG, "constructor 1");
+//        Log.i(TAG, "constructor 1");
 
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView);
 
@@ -61,7 +61,7 @@ public class CircleImageView extends ImageView {
     public CircleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        Log.i(TAG, "constructor 2");
+//        Log.i(TAG, "constructor 2");
     }
 
     @Override
@@ -78,7 +78,10 @@ public class CircleImageView extends ImageView {
         // else, draw on canvas like regular imageview
         if (mMaskDrawable != null) {
 
-            mMaskDrawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+            mMaskDrawable.setBounds(getPaddingLeft(),
+                    getPaddingTop(),
+                    canvas.getWidth() - getPaddingRight(),
+                    canvas.getHeight() - getPaddingBottom());
             mMaskDrawable.draw(canvas);
 
             int layer = canvas.saveLayer(0, 0, canvas.getWidth(), canvas.getHeight(), mMaskedPaint,
